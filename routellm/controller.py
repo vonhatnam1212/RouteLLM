@@ -150,7 +150,7 @@ class Controller:
         kwargs["model"] = self._get_routed_model_for_completion(
             kwargs["messages"], router, threshold
         )
-        return completion(api_base=self.api_base, api_key=self.api_key, **kwargs)
+        return completion(api_base=self.api_base, api_key=self.api_key, drop_params=True, **kwargs)
 
     # Matches OpenAI's Async Chat Completions interface, but also supports optional router and threshold args
     async def acompletion(
@@ -167,4 +167,4 @@ class Controller:
         kwargs["model"] = self._get_routed_model_for_completion(
             kwargs["messages"], router, threshold
         )
-        return await acompletion(api_base=self.api_base, api_key=self.api_key, **kwargs)
+        return await acompletion(api_base=self.api_base, api_key=self.api_key, drop_params=True, **kwargs)
